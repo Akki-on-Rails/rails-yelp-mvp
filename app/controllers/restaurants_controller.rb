@@ -6,6 +6,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @average = average_review
   end
 
   def new
@@ -39,5 +40,10 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :adress, :phone_number, :category)
+  end
+
+  def average_review
+    # .sum doesn't work!!!
+    # @restaurant.reviews.sum(0.0) / @restaurant.reviews.size
   end
 end

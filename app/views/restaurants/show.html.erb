@@ -1,7 +1,8 @@
 <h1>Rate the Restaurant</h1>
 <h2><%= @restaurant.name %></h2>
-<% average = (@restaurant.reviews.sum(0.0)) / (@restaurant.reviews.size) %>
-<p>Rating: <%= average %></p>
+<%# calculating average doesn't work (.sum doesn't work...) %>
+<%# <% average = @restaurant.reviews.sum(0.0) / @restaurant.reviews.size %> %>
+<p>Rating: <%= @average %></p>
 <p>Category: <%= @restaurant.category %></p>
 <p><%= @restaurant.address %></p>
 <p>Phone: <%= @restaurant.phone_number %></p>
