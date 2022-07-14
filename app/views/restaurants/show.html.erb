@@ -1,6 +1,19 @@
 <h1>Rate the Restaurant</h1>
 <h2><%= @restaurant.name %></h2>
+<% average = (@restaurant.reviews.sum(0.0)) / (@restaurant.reviews.size) %>
+<p>Rating: <%= average %></p>
 <p>Category: <%= @restaurant.category %></p>
 <p><%= @restaurant.address %></p>
 <p>Phone: <%= @restaurant.phone_number %></p>
-<%# <p><strong><%= @restaurant.rating </strong></p> %>
+<%= link_to 'Add review', new_restaurant_review_path(@restaurant) %>
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+<%= link_to 'Delete', restaurant_path(@restaurant),
+        method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to 'Back', restaurants_path %>
+
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %> <br>
+    <strong><%= review.rating %></strong></li>
+  <% end %>
+</ul>
