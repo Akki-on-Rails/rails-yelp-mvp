@@ -44,6 +44,7 @@ class RestaurantsController < ApplicationController
 
   def average_review
     # .sum doesn't work!!!
+    # maybe iterate over the array of reviews with .each???
     # @restaurant.reviews.sum(0.0) / @restaurant.reviews.size
   end
 end
